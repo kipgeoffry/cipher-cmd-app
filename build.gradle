@@ -1,12 +1,18 @@
 plugins {
     id 'java'
 }
-
 group = 'net.kigen'
-version = '1.0-SNAPSHOT'
+version = '1.0'
 
 repositories {
     mavenCentral()
+}
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'net.kigen.Main'
+        )
+    }
 }
 
 dependencies {
