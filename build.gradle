@@ -10,7 +10,7 @@ repositories {
 jar {
     manifest {
         attributes(
-                'Main-Class': 'net.kigen.Main'
+                'Main-Class': 'net.kigen.CaesarCipher'
         )
     }
 }
