@@ -5,21 +5,27 @@ import java.util.Scanner;
 public class FrontEnd {
     Cipher cipher = new Cipher();
     Scanner myScanner = new Scanner(System.in);
+
+    //class constructor
+    public FrontEnd(){
+    }
     public void Operation() {
-        System.out.print("Select an Operation to Perform: e to Encrypt or d to Decrypt:: ");
-        String ops = myScanner.nextLine().toLowerCase();
+
 
         while (true){
+
+            System.out.print("Select an Operation to Perform: e to Encrypt or d to Decrypt:");
+            String ops = myScanner.nextLine().toLowerCase();
             if( ops.startsWith("e")) {
-                String operation = "Encryption";
+                String operation = "Encrypt";
                 userIO(operation,cipher.encrypt());
             } else if (ops.startsWith("d")) {
-                String operation = "Decryption";
+                String operation = "Decrypt";
                 userIO(operation,cipher.decrypt());
             } else {
-                System.out.println("Invalid Operation");
+                System.out.printf("%nInvalid Operation %n");
             }
-            System.out.print("Do you want to Continue? Y or N ::");
+            System.out.print("Do you want to Continue? Y or N :");
             String option = myScanner.next().toUpperCase();
             if(option.startsWith("N")){
                 System.out.print("Thank you for using Caesar Cipher App.");
@@ -30,16 +36,16 @@ public class FrontEnd {
 
     }
     private void userIO(String operation, String output){
-        System.out.print( "Enter your Message to ${operation} ::");
+        System.out.printf( "Enter the Message to %s:%n",operation);
         String message = myScanner.nextLine();
         cipher.setMessage(message);
-        System.out.print("Enter ${operation} key::");
+        System.out.printf("Enter %sion key:", operation);
         int key = myScanner.nextInt();
         if (key < 1 || key > 25){
             System.out.println("Invalid key,Key should be a number from 1 to 25");
         } else{
             cipher.setKey(key);
         }
-        System.out.println("Your ${operation} message is ::" + output);
+        System.out.printf("Your %sed message is :%n%s %n%n", operation ,output);
     }
 }
