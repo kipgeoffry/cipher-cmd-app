@@ -31,5 +31,4 @@ public class Cipher {
         this.key = key;
     }
 
-
 }
