@@ -3,7 +3,7 @@ package net.kigen;
 public class Cipher {
     private String message = "";
     private int key = 0;
-    private int process = 1;
+
 
     //Encryption Logic here
     public String encrypt(){
@@ -31,13 +31,6 @@ public class Cipher {
 
     public void setKey(int key) {
         this.key = key;
-    }
-    public int getProcess() {
-        return process;
-    }
-
-    public void setProcess(int process) {
-        this.process = process;
     }
 
 }

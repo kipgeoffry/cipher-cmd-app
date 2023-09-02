@@ -9,15 +9,24 @@ public class FrontEnd {
         System.out.print("Select an Operation to Perform: e to Encrypt or d to Decrypt:: ");
         String ops = myScanner.nextLine().toLowerCase();
 
-        if( ops.startsWith("e")) {
-            String operation = "Encryption";
-            userIO(operation,cipher.encrypt());
-        } else if (ops.startsWith("d")) {
-            String operation = "Decryption";
-            userIO(operation,cipher.decrypt());
-        } else {
-            System.out.println("Invalid Operation");
+        while (true){
+            if( ops.startsWith("e")) {
+                String operation = "Encryption";
+                userIO(operation,cipher.encrypt());
+            } else if (ops.startsWith("d")) {
+                String operation = "Decryption";
+                userIO(operation,cipher.decrypt());
+            } else {
+                System.out.println("Invalid Operation");
+            }
+            System.out.print("Do you want to Continue? Y or N ::");
+            String option = myScanner.next().toUpperCase();
+            if(option.startsWith("N")){
+                break;
+            }
+
         }
+
     }
     private void userIO(String operation, String output){
         System.out.print( "Enter your Message to ${operation} ::");
