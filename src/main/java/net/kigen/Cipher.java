@@ -1,27 +1,20 @@
 package net.kigen;
 
 public class Cipher {
-
     private String message = "";
     private int key = 0;
     private int process = 1;
 
-    public int getProcess() {
-        return process;
-    }
+    //Encryption Logic here
+    public String encrypt(){
 
-    public void setProcess(int process) {
-        this.process = process;
-    }
-
-    public String encrypt(String message, int key){
-
-        return "";
+        return "ENCRYPTED";
     };
 
-    public String decrypt(String message, int key){
+    //Decryption Logic goes here
+    public String decrypt(){
 
-        return "";
+        return "DECRYPTED";
     }
 
     public String getMessage() {
@@ -38,6 +31,13 @@ public class Cipher {
 
     public void setKey(int key) {
         this.key = key;
+    }
+    public int getProcess() {
+        return process;
+    }
+
+    public void setProcess(int process) {
+        this.process = process;
     }
 
 }
