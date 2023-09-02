@@ -4,6 +4,10 @@ public class Cipher {
     private String message = "";
     private int key = 0;
 
+    // Cipher Constructor
+    public Cipher(){
+    }
+
 
     //Encryption Logic here
     public String encrypt(){

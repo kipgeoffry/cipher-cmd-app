@@ -22,6 +22,7 @@ public class FrontEnd {
             System.out.print("Do you want to Continue? Y or N ::");
             String option = myScanner.next().toUpperCase();
             if(option.startsWith("N")){
+                System.out.print("Thank you for using Caesar Cipher App.");
                 break;
             }
 
