@@ -1,5 +1,6 @@
 package net.kigen;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class FrontEnd {
@@ -39,14 +40,19 @@ public class FrontEnd {
         Scanner myScanner = new Scanner(System.in);
         String message = myScanner.nextLine();
         cipher.setMessage(message);
-        System.out.printf("Enter %sion key:", operation);
-        int key = myScanner.nextInt();
-        if (key < 1 || key > 25 ){   //TODO handle when input is integer and out of range.
-            System.out.println("Invalid key,Key should be a number from 1 to 25");
-            return;
-        } else{
-            cipher.setKey(key);
-        }
+            try{
+                System.out.printf("Enter %sion key:", operation);
+                int key = myScanner.nextInt();
+                if (key < 1 || key > 25 ){
+                    System.out.println("Invalid key,Key should be a number from 1 to 25");
+                    return;
+                } else{
+                    cipher.setKey(key);
+                }
+            } catch (InputMismatchException e){
+                System.out.println("Invalid Input,Key should be a number from 1 to 25");
+                return;
+            }
         System.out.printf("Your %sed message is :%n%s %n%n", operation ,output);
     }
 }
