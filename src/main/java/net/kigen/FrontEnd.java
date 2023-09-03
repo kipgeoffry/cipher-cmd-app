@@ -10,18 +10,18 @@ public class FrontEnd {
     public FrontEnd(){
     }
     public void Operation() {
-
-
         while (true){
             System.out.print("Select an Operation to Perform: e to Encrypt or d to Decrypt:");
-                Scanner myScanner = new Scanner(System.in);
+            Scanner myScanner = new Scanner(System.in);
                 String ops = myScanner.nextLine().toLowerCase();
                 if( ops.startsWith("e")) {
                     String operation = "Encrypt";
-                    userIO(operation,cipher.encrypt());
+                    userInput(operation);
+                    appOutput(operation,cipher.encrypt());
                 } else if (ops.startsWith("d")) {
                     String operation = "Decrypt";
-                    userIO(operation,cipher.decrypt());
+                    userInput(operation);
+                    appOutput(operation, cipher.decrypt());
                 } else {
                     System.out.printf("%nInvalid Operation %n");
                 }
@@ -31,11 +31,9 @@ public class FrontEnd {
                 System.out.print("Thank you for using Caesar Cipher App.");
                 break;
             }
-
         }
-
     }
-    private void userIO(String operation, String output){
+    private void userInput(String operation){
         System.out.printf( "Enter the Message to %s:%n",operation);
         Scanner myScanner = new Scanner(System.in);
         String message = myScanner.nextLine();
@@ -53,6 +51,9 @@ public class FrontEnd {
                 System.out.println("Invalid Input,Key should be a number from 1 to 25");
                 return;
             }
+
+    }
+    public void appOutput(String operation,String output){
         System.out.printf("Your %sed message is :%n%s %n%n", operation ,output);
     }
 }
