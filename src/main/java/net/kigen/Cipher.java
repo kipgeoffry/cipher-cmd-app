@@ -37,7 +37,6 @@ public class Cipher {
 
         }
         return output;
-
     }
 
     //Decryption Logic goes here

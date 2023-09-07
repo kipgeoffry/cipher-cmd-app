@@ -33,6 +33,7 @@ public class FrontEnd {
             }
         }
     }
+
     private void userInput(String operation){
         System.out.printf( "Enter the Message to %s:%n",operation);
         Scanner myScanner = new Scanner(System.in);
@@ -41,19 +42,17 @@ public class FrontEnd {
             try{
                 System.out.printf("Enter %sion key:", operation);
                 int key = myScanner.nextInt();
-                if (key < 1 || key > 25 ){
+                if (key < 1 || key > 25 ){ //todo handle stopping operation
                     System.out.println("Invalid key,Key should be a number from 1 to 25");
-                    return;
                 } else{
                     cipher.setKey(key);
                 }
-            } catch (InputMismatchException e){
+            } catch (InputMismatchException e){ //todo handle exception
                 System.out.println("Invalid Input,Key should be a number from 1 to 25");
-                return;
             }
 
     }
-    public void appOutput(String operation,String output){
+    private void appOutput(String operation,String output){
         System.out.printf("Your %sed message is :%n%s %n%n", operation ,output);
     }
 }
