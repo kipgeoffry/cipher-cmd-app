@@ -35,6 +35,9 @@ public class Cipher {
                 newCh = ch;
             } else{
                 int newChPos = chPos + this.getKey();
+                if(newChPos > 25){
+                    newChPos = newChPos-26;
+                }
                 newCh = this.alphabets.charAt(newChPos);
             }
             output.append(newCh);

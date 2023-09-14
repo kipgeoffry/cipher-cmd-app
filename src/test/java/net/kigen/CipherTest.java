@@ -22,4 +22,13 @@ public class CipherTest {
         output.setMessage("n ame");
         assertEquals(expected, output.encrypt());
     }
+
+    @Test
+    void encrypt_encryptWhenCharPosIsGreaterThan25_String() {
+        Cipher output = new Cipher();
+        String expected = "BC";
+        output.setKey(7);
+        output.setMessage("uv");
+        assertEquals(expected, output.encrypt());
+    }
 }
