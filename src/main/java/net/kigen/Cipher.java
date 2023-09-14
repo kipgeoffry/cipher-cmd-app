@@ -6,8 +6,9 @@ public class Cipher {
     private final String alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     // Cipher Constructor
-    public Cipher(){
+    public Cipher() {
     }
+
     public String getMessage() {
         return message;
     }
@@ -25,7 +26,7 @@ public class Cipher {
     }
 
     //Encryption Logic here
-    public String encrypt(){
+    public String encrypt() {
         message = this.getMessage().toUpperCase();
         StringBuilder output = new StringBuilder();
         for (char ch : message.toCharArray()) {
@@ -33,10 +34,10 @@ public class Cipher {
             char newCh;
             if (chPos == -1) {
                 newCh = ch;
-            } else{
+            } else {
                 int newChPos = chPos + this.getKey();
-                if(newChPos > 25){
-                    newChPos = newChPos-26;
+                if (newChPos > 25) {
+                    newChPos = newChPos - 26;
                 }
                 newCh = this.alphabets.charAt(newChPos);
             }
@@ -47,28 +48,23 @@ public class Cipher {
     }
 
     //Decryption Logic goes here
-    public String decrypt(){
+    public String decrypt() {
         message = this.getMessage().toUpperCase();
         StringBuilder decryptedMessage = new StringBuilder();
 
-        for(char decryptedXter : message.toCharArray()){
+        for (char decryptedXter : message.toCharArray()) {
+            char newXter = decryptedXter;
             int characterPos = this.alphabets.indexOf(decryptedXter);
-            char newXter;
-            if (characterPos == -1){
-                newXter = decryptedXter;
-            } else{
+            if (characterPos != -1) {
                 int newXterPos = characterPos - this.getKey();
-                if (newXterPos < 0){
-                   newXterPos = 26 + newXterPos;
+                if (newXterPos < 0) {
+                    newXterPos = 26 + newXterPos;
                 }
                 newXter = this.alphabets.charAt(newXterPos);
             }
             decryptedMessage.append(newXter);
-        }
 
+        }
         return decryptedMessage.toString();
     }
-
-
-
 }
