@@ -30,11 +30,9 @@ public class Cipher {
         message = this.getMessage().toUpperCase();
         StringBuilder output = new StringBuilder();
         for (char ch : message.toCharArray()) {
+            char newCh = ch;
             int chPos = this.alphabets.indexOf(ch);
-            char newCh;
-            if (chPos == -1) {
-                newCh = ch;
-            } else {
+            if (chPos != -1) {
                 int newChPos = chPos + this.getKey();
                 if (newChPos > 25) {
                     newChPos = newChPos - 26;
@@ -42,7 +40,6 @@ public class Cipher {
                 newCh = this.alphabets.charAt(newChPos);
             }
             output.append(newCh);
-
         }
         return output.toString();
     }
