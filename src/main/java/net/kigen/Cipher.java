@@ -48,9 +48,25 @@ public class Cipher {
 
     //Decryption Logic goes here
     public String decrypt(){
-        char y = this.alphabets.charAt(this.getKey());
+        message = this.getMessage().toUpperCase();
+        StringBuilder decryptedMessage = new StringBuilder();
 
-        return "DECRYPTED";
+        for(char decryptedXter : message.toCharArray()){
+            int characterPos = this.alphabets.indexOf(decryptedXter);
+            char newXter;
+            if (characterPos == -1){
+                newXter = decryptedXter;
+            } else{
+                int newXterPos = characterPos - this.getKey();
+                if (newXterPos < 0){
+                   newXterPos = 26 + newXterPos;
+                }
+                newXter = this.alphabets.charAt(newXterPos);
+            }
+            decryptedMessage.append(newXter);
+        }
+
+        return decryptedMessage.toString();
     }
 
 
