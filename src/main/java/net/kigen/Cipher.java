@@ -27,16 +27,20 @@ public class Cipher {
     //Encryption Logic here
     public String encrypt(){
         message = this.getMessage().toUpperCase();
-        String output = "";
-        char[] ary = message.toCharArray();
-        for (char ch : ary) {
+        StringBuilder output = new StringBuilder();
+        for (char ch : message.toCharArray()) {
             int chPos = this.alphabets.indexOf(ch);
-            int newChPos = chPos + this.getKey();
-            char newCh = this.alphabets.charAt(newChPos);
-            output = output + newCh;
+            char newCh;
+            if (chPos == -1) {
+                newCh = ch;
+            } else{
+                int newChPos = chPos + this.getKey();
+                newCh = this.alphabets.charAt(newChPos);
+            }
+            output.append(newCh);
 
         }
-        return output;
+        return output.toString();
     }
 
     //Decryption Logic goes here

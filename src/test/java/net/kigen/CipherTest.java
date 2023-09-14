@@ -13,4 +13,13 @@ public class CipherTest {
         output.setMessage("name");
         assertEquals(expected, output.encrypt());
     }
+
+    @Test
+    void encrypt_passSpaceCharacterAsIs_String() {
+        Cipher output = new Cipher();
+        String expected = "P COG";
+        output.setKey(2);
+        output.setMessage("n ame");
+        assertEquals(expected, output.encrypt());
+    }
 }

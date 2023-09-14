@@ -44,11 +44,13 @@ public class FrontEnd {
                 int key = myScanner.nextInt();
                 if (key < 1 || key > 25 ){ //todo handle stopping operation
                     System.out.println("Invalid key,Key should be a number from 1 to 25");
+                    return;
                 } else{
                     cipher.setKey(key);
                 }
             } catch (InputMismatchException e){ //todo handle exception
                 System.out.println("Invalid Input,Key should be a number from 1 to 25");
+                return;
             }
 
     }
